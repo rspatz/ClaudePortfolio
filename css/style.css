@@ -28,7 +28,7 @@ nav {
   width: 100%;
   top: 0;
   z-index: 100;
-  background-color: rgba(31, 41, 55, 0.95);
+  background-color: rgba(31, 41, 55, 0.7);
   backdrop-filter: blur(10px);
 }
 
