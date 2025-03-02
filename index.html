@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+      :root {
+        --primary: #de4a26;
+        --dark: #0d0612;
+        --light: #f3f4f6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      body {
+        background-color: var(--dark);
+        color: var(--light);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      nav {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        background-color: rgba(31, 41, 55, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--light);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 4rem;
+      }
+
+      .hero-content {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        color: #9ca3af;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--primary);
+        color: var(--dark);
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        transition: transform 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .projects {
+        padding: 8rem 0;
+      }
+
+      .projects h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: #374151;
+        border-radius: 1rem;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        background-color: #4b5563;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-content h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-content p {
+        color: #9ca3af;
+        margin-bottom: 1rem;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: var(--dark);
+          padding: 1rem;
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container nav-content">
+        <div class="logo">Portfolio</div>
+        <button class="mobile-menu-btn">☰</button>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Creative Developer & Designer</h1>
+          <p>Crafting modern digital experiences with passion and precision</p>
+          <a href="#projects" class="btn">View My Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="/api/placeholder/400/320" alt="Project 1" />
+            </div>
+            <div class="project-content">
+              <h3>Project One</h3>
+              <p>
+                A modern web application built with cutting-edge technologies.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="/api/placeholder/400/320" alt="Project 2" />
+            </div>
+            <div class="project-content">
+              <h3>Project Two</h3>
+              <p>
+                An innovative mobile-first design with seamless interactions.
+              </p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="/api/placeholder/400/320" alt="Project 3" />
+            </div>
+            <div class="project-content">
+              <h3>Project Three</h3>
+              <p>A responsive dashboard with real-time data visualization.</p>
+              <a href="#" class="btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Animations
+      gsap.to('.hero-content', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+
+      gsap.to('.projects h2', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: '.projects h2',
+          start: 'top 80%'
+        }
+      });
+
+      gsap.to('.project-card', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.project-grid',
+          start: 'top 80%'
+        }
+      });
+    </script>
+  </body>
+</html>
